@@ -6,12 +6,12 @@
 #    By: hnohara <hnohara@student.42tokyo.j>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/28 01:33:31 by hnohara           #+#    #+#              #
-#    Updated: 2020/11/18 12:02:47 by hnohara          ###   ########.fr        #
+#    Updated: 2020/11/28 20:27:47 by hnohara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 SRCS =	ft_strlen.c \
@@ -48,23 +48,43 @@ SRCS =	ft_strlen.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
+
+B_SRCS = ft_lstnew.c \
+		 ft_lstadd_front.c \
+		 ft_lstsize.c \
+		 ft_lstlast.c \
+		 ft_lstadd_back.c \
+		 ft_lstdelone.c \
+		 ft_lstclear.c \
+		 ft_lstiter.c \
+		 ft_lstmap.c
 OBJS = ${SRCS:.c=.o}
+B_OBJS = ${B_SRCS:.c=.o}
 
 all: ${NAME}
 
-$(NAME): ${OBJS}
+${NAME}: ${OBJS}
 	ar cr $@ ${OBJS}
 
-${wildcard *.o}: ${SRCS}
-	${CC} ${CFLAGS} ${SRCS} -o $@
+.c.o:
+	${CC} ${CFLAGS} -c $^
+
+#${OBJS}: ${SRCS}
+#	${CC} ${CFLAGS} ${SRCS} -o $@
 
 clean:
 	rm -f ${OBJS}
+	rm -f ${B_OBJS}
 
 fclean: clean
 	rm -f ${NAME}
 
-re:
-	rm -f ${OBJS}
-	rm -f ${NAME}
-	make all
+re: fclean all
+#	rm -f ${OBJS}
+#	rm -f ${NAME}
+#	make all
+
+bonus: ${B_OBJS}
+	ar rc ${NAME} ${B_OBJS}
+
+.PHONY: all re clean fclean bonus
