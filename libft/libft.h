@@ -6,7 +6,7 @@
 /*   By: hnohara <hnohara@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 14:39:19 by hnohara           #+#    #+#             */
-/*   Updated: 2020/11/28 21:27:17 by hnohara          ###   ########.fr       */
+/*   Updated: 2020/11/28 21:32:46 by hnohara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 
 char			*ft_itoa(int n);
 int				ft_atoi(char *str);
-void			*ft_calloc(unsigned nobj, unsigned size);
 char			*ft_strjoin(char const *s1, char const *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
