@@ -6,7 +6,7 @@
 /*   By: hnohara <hnohara@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 12:37:11 by hnohara           #+#    #+#             */
-/*   Updated: 2020/11/16 17:07:38 by hnohara          ###   ########.fr       */
+/*   Updated: 2021/01/05 22:10:31 by hnohara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*p;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	if (!*s)
 		return (ft_strdup(""));
-	original_len = 0;
-	while (s[original_len])
-		++original_len;
+	original_len = ft_strlen(s);
 	if (len <= 0 || start >= original_len)
 		len = 0;
 	if (original_len - (size_t)start < len)
