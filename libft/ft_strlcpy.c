@@ -6,20 +6,20 @@
 /*   By: hnohara <hnohara@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 11:51:12 by hnohara           #+#    #+#             */
-/*   Updated: 2020/11/11 09:11:42 by hnohara          ###   ########.fr       */
+/*   Updated: 2021/01/05 22:27:44 by hnohara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t i;
 	size_t j;
 
-	j = 0;
-	while (src[j])
-		++j;
+	if (!dest || !src)
+		return (-1);
+	j = ft_strlen(src);
 	if (size <= 0)
 		return (j);
 	i = 0;

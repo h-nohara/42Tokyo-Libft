@@ -6,7 +6,7 @@
 /*   By: hnohara <hnohara@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 20:13:53 by hnohara           #+#    #+#             */
-/*   Updated: 2020/11/28 21:12:05 by hnohara          ###   ########.fr       */
+/*   Updated: 2021/01/05 22:31:55 by hnohara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list *res;
 	t_list *new;
 
+	if (!lst)
+		return (NULL);
 	res = ft_lstnew((*f)(lst->content));
 	lst = lst->next;
 	while (lst)

@@ -6,7 +6,7 @@
 /*   By: hnohara <hnohara@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 14:02:19 by hnohara           #+#    #+#             */
-/*   Updated: 2020/11/16 16:49:07 by hnohara          ###   ########.fr       */
+/*   Updated: 2021/01/05 22:22:31 by hnohara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	char	*p;
 	int		j;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = ft_trim_get_head(s1, set);
 	end = ft_trim_get_tail(s1, set);
 	if (end < start)
